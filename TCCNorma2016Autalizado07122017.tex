@@ -1,0 +1,362 @@
+\documentclass[12pt,a4paper,twoside,sumario=abnt-6027-2012,chapter=TITLE]{abntex2}
+
+\usepackage{scrextend} % para usar o ambiente labeling
+\usepackage{array}
+
+
+\setlength\afterchapskip{\lineskip} 
+\setlength\beforechapskip{\lineskip}
+%coloca o espaçamento 1,5 entre títulos de capítulos e o texto. Coloca tanto antes quanto depois. Norma abnt e manual da UFVJM
+
+\setlength\aftersecskip{\lineskip}
+\setlength\beforesecskip{\lineskip}
+%coloca o espaçamento 1,5 entre títulos de seções e o texto. Coloca tanto antes quanto depois. Norma abnt e manual da UFVJM
+
+\setlength\aftersubsecskip{\lineskip}
+\setlength\beforesubsecskip{\lineskip}
+%coloca o espaçamento 1,5 entre títulos de subseções e o texto. Coloca tanto antes quanto depois. Norma abnt e manual da UFVJM
+
+\setlength\aftersubsubsecskip{\lineskip}
+\setlength\beforesubsubsecskip{\lineskip}
+%coloca o espaçamento 1,5 entre títulos de subsubseções e o texto. Coloca tanto antes quanto depois. Norma abnt e manual da UFVJM
+
+\usepackage[brazil]{babel}
+%\usepackage[brazil]{babel}
+\usepackage{mathptmx} %Times new roman para texto e matemática
+%\usepackage{times} %Times new roman para texto
+\usepackage{lastpage}
+\usepackage{minitoc} 
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}	
+
+%%% Euler - pacotes para múltiplas linhas e colunas de tabelas
+\usepackage{multirow}
+\usepackage{multicol}
+
+%%%%%%
+
+%%%marcelo - Caption do tipo do elemento gráfico em negrito.
+
+%\usepackage[labelfont=bf]{caption}
+
+%%% Ex: Figura 1 - Título da figura.
+%%% Apenas Figura 1 estará em negrito
+
+%%%marcelo - Todo caption em negrido
+
+\usepackage{caption}
+% marcelo - colocar a fonte alinhada a esquerda
+%https://tex.stackexchange.com/questions/131532/position-caption-of-centered--left-adjusted-to-figure
+%\captionsetup{font={bf,small}, position=below, justification=raggedright, singlelinecheck=false} % negrito e menor
+\captionsetup{font={bf,small}, position=below} % negrito e menor
+%%% tamanhos disponíveis -> scriptsize, footnotesize, small, normalsize, large, Large
+
+%%% Ex: Figura 1 - Título da figura
+%%% Figura 1 - Título da figura estará em negrito.
+
+% marcelo - Deixa a fonte da figura, quadro, etc, sem negrito quando se utiliza a solução acima.
+%\newcommand{\fonteUFVJM}[1]{\legend{\textnormal{Fonte -- #1}}}
+\renewcommand{\fonte}[1]{\captionsetup{justification=raggedright, singlelinecheck=false}\legend{\textnormal{Fonte: #1}}}
+
+%\renewcommand{\fonte}[1]{\legend{\textnormal{Fonte: #1}}}
+
+
+% marcelo - simula aspas duplas no estilo usado pelo JSON (''a'')
+\newcommand{\q}[1]{{\textquotesingle\textquotesingle}#1{\textquotesingle\textquotesingle}}
+%marcelo - nome menor para backslash
+\newcommand{\bks}{\textbackslash}
+
+\usepackage{tabularx} % marcelo - tabelas justificadas
+\usepackage{booktabs} % marcelo - grossura da linha em tabelas
+
+%%% marcelo - retira espaços extras entre os elementos de uma lista (itemize e enumarate)
+\usepackage{enumitem}
+\usepackage{setspace}
+\setlist[itemize,enumerate]{nosep} % Caso queira deixar espaçamento duplo entre o parágravo anterior e posterior, mas não entre itens da lista, utilizar noitemsep no lugar de nosep
+%%% até aqui
+
+\raggedbottom % marcelo - Resolve o problema do espaçamento entre parágrafos aleatório
+
+\usepackage{subfig} %marcelo - Suporte a subfiguras	
+
+%\usepackage[none]{hyphenat} %marcelo - não permite hifenização
+
+
+\usepackage{indentfirst}		
+\usepackage{color}				
+\usepackage{microtype}
+%\usepackage[alf,abnt-emphasize=bf]{abntex2cite}
+
+%resolve problemas com as referências
+\usepackage[alf,abnt-etal-cite=3,abnt-etal-list=0,abnt-etal-text=emph,abnt-emphasize=bf,bibjustif]{abntex2cite}
+
+\usepackage{ragged2e} %para usar o comando \justify
+\usepackage{enumitem} %para mudar as alíneas
+\usepackage{textcomp} %fornece caracteres especiais
+\setlength{\parindent}{2cm} %Tamanho do parágrafo
+%\setlength{\parskip}{1.5cm} 
+%\setlrmarginsandblock{3cm}{2cm}
+
+
+%Para definir o tamanho das fontes das seções, subseções, etc (+++ seria o item (subsection, section, chapter, etc):
+
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize} 
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize} 
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize} 
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+%Para deixas as fontes das seções, subseções, etc, em negrito (+++ seria o item (subsection, section, chapter, etc):
+
+\renewcommand{\ABNTEXchapterfont}{\normalfont\normalfont\bfseries}
+\renewcommand{\ABNTEXsectionfont}{\normalfont\bfseries}
+\renewcommand{\ABNTEXsubsectionfont}{\normalfont\itshape\bfseries}
+\renewcommand{\ABNTEXsubsubsectionfont}{\normalfont\itshape}
+
+
+%Alterar o tipo da fonte no sumário - MARCELO
+
+% Secao secundaria (Section) Caixa baixa, Negrito, tamanho 12
+%\renewcommand{\cftsectionfont}{\bfseries} %ponha \rmfamily se quiser serifadas...
+
+% Secao terciaria (Subsection) Caixa baixa e italico no sumário
+\renewcommand{\cftsubsectionfont}{\normalfont\itshape\bfseries}
+
+% Secao quaternaria (Subsubsection) Caixa baixa, Negrito, sublinhado, tamanho 12
+\renewcommand{\cftsubsubsectionfont}{\normalfont\itshape}
+
+% Seção quinaria (subsubsubsection) Caixa baixa, sem negrito, tamanho 12
+%\renewcommand{\cftparagraphfont}{\normalfont}
+
+% MARCELO - Evitar linhas órfãs e viúvas
+\widowpenalty=10000
+\clubpenalty=10000
+
+
+
+%%%%% Euler - Cria comando para citar fontes de figuras e tabelas.
+
+\newcommand{\citefonte}[1]
+{\citeauthor{#1}, \citeyear{#1}}
+
+
+\hypersetup{
+     	pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={Nome do Aluno},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       		
+    	linkcolor=black,          	
+    	citecolor=black,        	
+    	filecolor=magenta,      		
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+\makeindex
+
+\titulo{TÍTULO DO TRABALHO: subtítulo}
+\autor{Euler Guimarães Horta}
+\local{Diamantina}
+\data{2018}
+\orientador{Antônio de Pádua Braga} % (não incluir “Prof.” ou titulação)
+\coorientador {René Natowicz} %  (se houver)(não incluir “Prof.” ou titulação)
+\tipotrabalho{Dissertação de Mestrado}
+\preambulo{Dissertação de Mestrado apresentada ao Programa de Pós-Graduação em Educação, como parte dos requisitos exigidos para a obtenção do título de Mestre em Educação.}
+
+
+
+\begin{document}
+\frenchspacing 
+
+\renewcommand{\imprimircapa}{% 
+\begin{capa}% 
+\center 
+\textbf{UNIVERSIDADE FEDERAL DOS VALES DO JEQUITINHONHA E MUCURI}\\
+{\textbf{Programa de Pós-Graduação em Educação}}\\
+{\bfseries \imprimirautor} 
+%\vspace*{1cm} 
+\vfill 
+\begin{center} 
+\bfseries \imprimirtitulo 
+\end{center} 
+\vfill 
+
+\bfseries \imprimirlocal 
+
+\bfseries \imprimirdata 
+\vspace*{1cm} 
+\end{capa} }
+
+\imprimircapa
+
+\makeatletter
+\renewcommand
+{\folhaderostocontent}{ 
+\begin{center} 
+{\bfseries\imprimirautor} 
+\vspace*{\fill}\vspace*{\fill} 
+\begin{center} 
+\bfseries\imprimirtitulo 
+\end{center} 
+\vspace*{\fill} 
+\abntex@ifnotempty{\imprimirpreambulo}{% 
+\hspace{.45\textwidth} 
+\begin{minipage}{.5\textwidth} 
+\begin{SingleSpacing}
+\imprimirpreambulo
+\end{SingleSpacing}
+%\vspace{1.5cm}
+
+\begin{SingleSpacing}
+{\imprimirorientadorRotulo~\imprimirorientador}\\ 
+\abntex@ifnotempty{\imprimircoorientador}{% 
+{\imprimircoorientadorRotulo~\imprimircoorientador}% 
+}% 
+\end{SingleSpacing}
+\end{minipage}%
+ 
+\vspace*{\fill} }% 
+{\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao \vspace*{\fill}}} 
+
+\vspace*{\fill} {\bfseries\imprimirlocal} 
+\par 
+{\bfseries\imprimirdata} 
+\vspace*{1cm} 
+\end{center} 
+} 
+\makeatother
+
+\pagenumbering{arabic}
+\imprimirfolhaderosto
+
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    {\bfseries \imprimirautor}
+
+    \vspace{1.5cm}
+    \begin{center}
+      \bfseries \imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+    
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo\\
+        
+        {Orientador: Prof. Dr. \imprimirorientador}\\ % (incluir Prof./Profa. e titulação, Dr./Dra./Me.)
+        {Coorientador: Prof. Dr. \imprimircoorientador}\\ % (incluir Prof./Profa. e titulação, Dr./Dra./Me.)
+        
+        {Data de aprovação \_\_\_\_/\_\_\_\_/\_\_\_\_.}
+    \end{minipage}
+    \vspace*{\fill}
+   \end{center}
+  
+
+
+   \assinatura{Prof. Dr. \imprimirorientador \\ Departamento de Eletrônica - UFMG} 
+   \assinatura{Prof. Dr. \imprimircoorientador \\ Instituto de Ciência e Tecnologia - UFVJM} 
+   \assinatura{Prof. Dr. Alexandre Ramos Fonseca  \\ Instituto de Ciência e Tecnologia - UFVJM}
+   \assinatura{Prof. Dr. Luiz Antônio Aguirre \\ Departamento de Eletrônica - UFMG}
+  
+      
+   \begin{center}
+    \vspace*{0.5cm}
+    {\textbf{\imprimirlocal}}
+    %\par
+    %{\imprimirdata}
+    %\vspace*{1cm}
+  \end{center}
+
+\end{folhadeaprovacao}
+
+
+%%%%%%%%%%%%%% Dedicatória - Opcional
+
+%\begin{dedicatoria}
+%\vspace*{\fill}
+%\begin{flushright}
+%Na dedicatória, o autor presta uma homenagem ou dedica seu trabalho a alguém. Essa é apenas uma sugestão para a dedicatória.
+%\end{flushright}
+%\end{dedicatoria}
+
+%%%%%%%%%%%%%% Agradecimentos
+
+\begin{agradecimentos}
+O conteúdo dessa seção é livre e normalmente é dedicado a agradecer as pessoas que contribuíram com o trabalho.
+\end{agradecimentos}
+
+%%%%%%%%%%%%%% Epígrafe - Opcional
+
+% \begin{epigrafe}
+% \vspace*{\fill}
+% \begin{flushright}
+% \justify
+% Essa é uma sugestão de formatação de Epígrafe. O texto sempre deve estar relacionado ao tema do trabalho ou capítulo. 
+% Caso o trabalho possua epígrafe, esta deverá ser referenciada, como neste exemplo \cite{CHAMPY2010}.%(CHAMPY, 2010, p. 117).
+% \end{flushright}
+% \end{epigrafe}
+ 
+%%%%%%%%%%%%%% Resumo
+ 
+\input{Resumo}
+\cleardoublepage
+%%%%%%%%%%%%%% Abstract
+
+\input{Abstract}
+\cleardoublepage
+
+%%%%%%%%%%%%%% Resumo
+
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+
+\begin{siglas}
+\item UFVJM - Universidade Federal dos Vales do Jequitinhonha e Mucuri
+\item UFMG - Universidade Federal de Minas Gerais
+\item IFNMG - Instituto Federal de Educação, Ciência e Tecnologia do Norte de Minas Gerais
+\end{siglas}
+
+
+\newpage
+
+\begin{simbolos}
+\item[$ \Gamma $] Letra grega Gama
+\item[$ \Lambda $] Lambda
+\item[$ \zeta $] Letra grega minúscula zeta
+\item[$ \in $] Pertence
+\end{simbolos}
+
+\newpage
+
+\tableofcontents*
+
+\newpage
+\textual
+\pagestyle{simple} %%%% Esse comando tira o cabeçalho do modelo abntex2 original.
+
+\input{Introducao}
+\input{Revisao}
+\input{ExemplosDeUso}
+\input{MateriaisEMetodos}
+%\input{ResultadosEDiscussoes}
+%\input
+% Deixar espaço em branco entre o final do trabalho e a bibliografia para evitar problemas de espaçamento entre linhas
+%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%
+\bibliography{bibliografia}
+\end{document}
+
+
