@@ -1,0 +1,1092 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+%	sumario=tradicional,
+	sumario=abnt-6027-2012,
+	english,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{UFVJM-abntex2}
+	%]{article}
+
+%\usepackage{CUSTOMIZACOES}
+
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+% ---
+% Pacotes básicos 
+% ---
+
+%\usepackage{lmodern}			% Usa a fonte Latin Modern
+
+%Essa times esta obsoleta
+%\usepackage{times}			% Usa a fonte Times		
+\usepackage{mathptmx}           % Usa a fonte times
+\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
+
+
+
+%\renewcommand{\ABNTEXchapterfont}{\normalfont\bfseries} %bold chapter
+%Teste
+% \renewcommand*{\ABNTEXchapterleader}{
+% \normalfont\ABNTEXdotfill{\ABNTEXsectiondotsep}}
+
+% Travessão no sumário para apêndices e anexos \\ 
+%\renewcommand{\cftchapteraftersnum}{\hfill\textendash\hfill} \\
+% % Insere espaço entre os itens do sumário de diferentes capítulos \\
+% \setlength{\cftbeforechapterskip}{1.0em \@plus\p@}
+
+%\setallmainfonts{Times New Roman}
+
+%Era assim
+%\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+%\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+%\usepackage[utf8x]{inputenc}
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+%\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+%\usepackage{color}				% Controle das cores
+%\usepackage{graphicx}			% Inclusão de gráficos
+%\usepackage{microtype} 			% para melhorias de justificação
+% ---
+%\usepackage{paralist}			% para usar compactitem
+\usepackage[final]{pdfpages}		% para incluir pdf
+
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+
+
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage[export]{adjustbox}
+
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{amsmath}			% para tratar o case no ambiente math
+
+\usepackage{tikz-uml}
+
+\usepackage{multirow}
+% ---
+
+ %cores nas tabelas%
+\usepackage{colortbl}
+ 
+
+
+%\usepackage{fontspec}
+%\setsansfont{Times New Roman}
+%\setmainfont{Times New Roman}
+
+%\usepackage{titlecaps}% http://ctan.org/pkg/titlecaps
+\usepackage{titlesec}
+%\usepackage[compact]{titlesec}
+
+%\titleformat{\chapter}{\normalfont\LARGE\bfseries}{\MakeUppercase{\thechapter}}{.5em}{\vspace{.5ex}}[\titlerule]
+\titleformat{\section}
+  {\normalfont\bfseries}
+  {\thesection}
+  {5pt}
+  {\MakeUppercase}
+  
+  \titleformat{\subsection}
+  {\normalfont\bfseries}
+  {\thesubsection}
+  {5pt}
+  {}
+  
+  \titleformat{\chapter}
+  {\centering\normalfont\bfseries}
+  {\thechapter}
+  {5pt}
+  {\MakeUppercase}
+  
+%\setallmainfonts{Times New Roman}
+%\setmainfont{Times New Roman}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,patterns,decorations.markings} 
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{arrows.meta, calc, quotes}
+
+%\usetikzlibrary{arrows.meta, calc, quotes}
+
+\usepackage[portuguese, ruled, linesnumbered]{algorithm2e} %Para criar algoritmos
+
+\usepackage{eso-pic}			% colocar imagem da UFVJM na capa
+	
+
+%\DeclareUnicodeCharacter{00A0}{~}	
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% Titulos dos capitulos e secoes
+%\usepackage{titlesec}
+%\usepackage{titling}
+
+%\usepackage{fontspec}
+%\newfontfamily{\headingfont}{Times New Roman}
+% %Specify different font for section headings
+%\makeheadstyles{myheadings}{%
+%\setsecheadstyle{\headingfont\bfseries} 
+%\setsubsecheadstyle{\headingfont\itshape}
+%}
+%
+%\headstyles{myheadings} 
+
+% Specify different font for section headings
+%\usepackage{titlesec}
+%\usepackage{titling}
+%\usepackage{fontspec}
+% Specify different font for section headings
+%\newfontfamily\headingfont[]{Times New Roman}
+%\titleformat*{\section}{\LARGE\headingfont}
+%\titleformat*{\subsection}{\Large\headingfont}
+%\titleformat*{\subsubsection}{\large\headingfont}
+%\renewcommand{\maketitlehooka}{\headingfont}
+
+%\usepackage{subfig}
+%
+%\usepackage{enumerate}
+%\usepackage{enumitem}
+
+%\usetikzlibrary{shapes.gates.logic.US,trees,positioning,arrows}
+%\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
+
+
+
+%\usepackage{color}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\usepackage{listings}
+%\lstset{language=Java,
+%  showspaces=false,
+%  showtabs=false,
+%  breaklines=true,
+%  showstringspaces=false,
+%  breakatwhitespace=true,
+%  commentstyle=\color{pgreen},
+%  keywordstyle=\color{pblue},
+%  stringstyle=\color{pred},
+%  basicstyle=\ttfamily,
+%  moredelim=[il][\textcolor{pgrey}]{$$},
+%  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+%}
+\newcommand{\li}{\textit{LiDAR }}
+\newcommand{\kps}{\textit{keypoints} }
+
+\newcommand{\cA}{5}
+\newcommand{\cB}{1}
+\newcommand{\cC}{0.5}
+
+\titlespacing*{\chapter}
+{0pt}{.75cm}{.75cm}
+\titlespacing*{\section}
+{0pt}{.75cm}{.75cm}
+
+\titlespacing*{\subsection}
+{0pt}{.75cm}{.75cm}
+
+
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand{\theequation}{\arabic{equation}}
+%\renewcommand{\ABNTEXpartname}{Artigo}
+%\def\partname{Artigo}
+
+%\captionstyle{\raggedright} %(para as legendas; use \legend para fonte)
+
+% Fontes padrao de part, chapter, section, subsection e subsubsection
+\renewcommand{\ABNTEXchapterfont}{\rmfamily}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize\bfseries}
+
+\renewcommand{\ABNTEXsectionfont}{\normalsize\bfseries}
+
+
+
+\renewcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
+\renewcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
+
+
+% Titulos das Figuras e tabelas
+\captionnamefont{\fontsize{10pt}{\baselineskip}\bfseries}
+\captiontitlefont{\fontsize{10pt}{\baselineskip}\bfseries\centering}
+
+%\namedlegend{\fontsize{17pt}{\baselineskip}\bfseries\centering}
+
+
+%Espaçode titulos
+\titlespacing{\chapter}{0pt}{-14mm}{.75cm}
+
+% Espaco de fonte das figurs e tabelas
+% Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
+\newcommand{\Fonte}[2]{%
+\begin{flushleft} 
+\vspace{0cm}
+\hspace{#1}
+    \begin{minipage}{6cm}
+   \footnotesize Fonte: #2
+    \end{minipage}%
+\end{flushleft} 
+}
+
+%%%%%%%%%%%%%%%%%%%% - Sumário:
+%\setlength{\cftbeforetoctitleskip}{3pt}
+%\renewcommand{\cfttoctitlefont}{%
+%	\hfill\normalfont\normalsize\bfseries\MakeUppercase}
+%
+%\renewcommand{\cftaftertoctitle}{%
+%	\hfill\mbox{}\\[\parsinpe]\mbox{}\hfill\underline{\normalfont\normalsize\bfseries P\'{a}g.}% comentado por gjfb em 2013-10-29
+%	\hfill\mbox{}\\[\parsinpe]\mbox{}\hfill\underline{\normalfont\normalsize\bfseries\nomepagina}% acrescendato por gjfb em 2013-10-29
+%}
+%
+%\setlength{\cftaftertoctitleskip}{\parsinpe}
+%
+%\setlength{\cftbeforepartskip}{\parsinpe}
+%\setlength{\cftbeforechapskip}{\parsinpe}
+%\setlength{\cftbeforesecskip}{\parsdefault}
+%\setlength{\cftbeforesubsecskip}{\parsdefault}
+%\setlength{\cftbeforesubsubsecskip}{\parsdefault}
+%\setlength{\cftbeforeparaskip}{\parsdefault}
+%\setlength{\cftbeforesubparaskip}{\parsdefault}
+%
+%\setlength{\cftchapindent}{0pt}
+%\setlength{\cftsecindent}{0pt}
+%\setlength{\cftsubsecindent}{0pt}
+%\setlength{\cftsubsubsecindent}{0pt}
+%\setlength{\cftparaindent}{0pt}
+%\setlength{\cftsubparaindent}{0pt}
+
+%TOC
+%\setlength{\cftbeforechapskip}{0.2cm}
+%\setlength{\cftbeforesecskip}{0.0cm}
+%\setlength{\cftbeforesubsecskip}{-0.45cm}
+
+
+%\renewcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
+%\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+
+%\renewcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
+%\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+
+%\renewcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont}
+%\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+%\renewcommand{\ABNTEXsubsubsubsectionfont}{\ABNTEXsubsectionfont}
+%\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+
+\lstset{ %
+  backgroundcolor=\color{white}, 
+  basicstyle=\footnotesize,       
+  breakatwhitespace=false,        
+  breaklines=true,                 
+  captionpos=b,                    
+  commentstyle=\color{pgreen},   
+  escapeinside={\%*}{*)},        
+  extendedchars=true,              
+  frame=single,                  
+  keywordstyle=\color{blue},       
+  language=Java,                
+  numbers=left,                    
+  numbersep=5pt,                   
+  numberstyle=\tiny\color{pgray},
+  rulecolor=\color{black},        
+  showspaces=false,               
+  showstringspaces=false,          
+  showtabs=false,                  
+  stepnumber=2,                    
+  stringstyle=\color{mymauve},   
+  tabsize=2,                      
+  title=\lstname, 
+  xleftmargin=\parindent,
+%  xleftmargin=.25in,
+%  xrightmargin=.25in,
+  morekeywords={not,\},\{,preconditions,effects },            
+  deletekeywords={time}            
+}
+
+\usepackage{hyphenat}
+\hyphenation{Mu-cu-ri}
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+%\usepackage{fancyhdr}
+%\pagestyle{myheadings}
+%\pagestyle{myheadings}
+%\pagestyle{fancy}
+%\pagestyle{fancyplain}
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+%\fancyhf{}
+%\fancyhead{} % clear header
+%\fancyfoot{} % clear footer
+%\fancyfoot[LE,RO]{\thepage} % page at left on even and right on odd pages
+
+%\pagestyle{fancy}
+%\pagestyle{fancy}
+
+%\fancypagestyle{myheadings}{ %
+ % \fancyhf{} % remove everything
+ % \fancyhead[LE,RO]{\thepage}% clear header
+%\fancyfoot{} % clear footer
+ % \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  %\renewcommand{\footrulewidth}{0pt}
+%}
+
+
+
+\pagestyle{myheadings}
+\makeheadrule{abntheadings}{\textwidth}{0pt}
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{\normalsize Mapeamento do potencial madeireiro em área de floresta amazônica}
+\autor{Eduardo Pelli}
+\local{\normalsize Diamantina}
+\data{\normalsize 2019}
+\orientador{\normalsize Prof. Dr. Eric Bastos G\"orgens}
+%\coorientador{Euler Guimar\~aes Horta}
+\instituicao{%
+  \normalsize Universidade Federal dos Vales do Jequitinhonha e Mucuri - UFVJM
+  \par
+  Departamento de Engenharia Florestal - DEF
+  \par
+  Programa de P\'os-Gradua\c c\~ao em Ci\^encia Florestal - PPGCF}
+\tipotrabalho{Tese (Doutorado)}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+%\preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
+%as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+\preambulo{Tese de Doutorado apresentada ao programa de Pós-graduação em Ciência Florestal da Universidade Federal dos Vales do Jequitinhonha e Mucuri, como requisito para obtenção do título de Doutor.}
+%Tese de doutorado apresentada como requisito parcial para a obtenção do título de doutor em Ciência Florestal.
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+\makeatletter
+\renewenvironment{abstract}{%
+    \if@twocolumn
+      \section*{\abstractname}%
+    \else %% <- here I've removed \small
+      \begin{center}%
+        {\bfseries \normalsize\abstractname\vspace{\z@}}%  %% <- here I've added \Large
+      \end{center}%
+     % \quotation
+    \fi}
+    {\if@twocolumn\else\fi}
+%    {\if@twocolumn\else\endquotation\fi}
+\makeatother
+
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{2.0cm}
+%\setlength\parindent{2cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+\linespread{1.25}
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% Posicao da watermark da capa
+\AddToShipoutPicture*{\put(-610,0){\includegraphics{img/capa.eps}}}
+%\AddToShipoutPicture*{\put(0,0){\includegraphics{img/capa.eps}}}
+% ---
+% Capa
+%\begin{center}
+%\normalsize
+%\textbf{UNIVERSIDADE FEDERAL DOS VALES DO JEQUITINHONHA E MUCURI}\\
+%\vspace{-.2cm}
+%\textbf{Programa de Pós-Graduação em Ciência Florestal}\\
+%\vspace{.3cm}
+%\textbf{Eduardo Pelli}\\
+%\vspace{8cm}
+%\textbf{\uppercase{Mapeamento do potencial madeireiro em área de floresta amazônica}}\\
+%\vfill
+%\textbf{Diamantina}\\
+%\vspace{-.2cm}
+%\textbf{2019}\\
+%
+%\end{center}
+%\newpage
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+% Inserir a ficha bibliografica
+% ---
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+
+\begin{fichacatalografica}
+\includepdf{fig_ficha_catalografica.pdf}
+%\includepdf{folhadeaprovacao_final.pdf}
+\end{fichacatalografica}
+
+%\begin{fichacatalografica}
+%	%\sffamily
+%	\small
+%	\vspace*{\fill}					% Posição vertical
+%	\begin{center}					% Minipage Centralizado
+%	\fbox{\begin{minipage}[c][7.5cm]{14.4cm}		% Largura
+%	\small
+%	\imprimirautor
+%	%Sobrenome, Nome do autor
+%	
+%	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. 
+%	\imprimirlocal, \imprimirdata.
+%	
+%	\hspace{0.5cm} \pageref{LastPage} p. : il; 30 cm.\\
+%	
+%	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+%	
+%	\hspace{0.5cm}
+%	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\\\imprimirinstituicao,
+%	\imprimirdata.}\\
+%	
+%	\hspace{0.5cm}
+%		1. LiDAR.
+%		2. Visão computacional.
+%		3. Manejo florestal de precisão.
+%		I. Orientador.
+%		II. Universidade Federal dos Vales do Jequitinhonha e Mucuri - UFVJM.
+%		III.  Departamento de Engenharia Florestal - DEF
+%		IV. \imprimirtitulo		
+%	\end{minipage}}
+%	\end{center}
+%\end{fichacatalografica}
+% ---
+
+% ---
+% Inserir errata
+% ---
+%\begin{errata}
+%Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+%
+%\vspace{\onelineskip}
+%
+%FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+%reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+%rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+%cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+%Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+%
+%\begin{table}[htb]
+%\center
+%\footnotesize
+%\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+%  \hline
+%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+%    \hline
+%    1 & 10 & auto-conclavo & autoconclavo\\
+%   \hline
+%\end{tabular}
+%\end{table}
+%
+%\end{errata}
+% ---
+
+% ---
+% Inserir folha de aprovação
+% ---
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+%IMPORTANTE
+\includepdf{folhadeaprovacao_final.pdf}
+%
+%\begin{folhadeaprovacao}
+%
+%\begin{center}
+%    \textbf{\normalsize\imprimirautor}
+%
+%    \vspace*{\fill}\vspace*{\fill}
+%    \begin{center}
+%       {\normalsize\bfseries\MakeTextUppercase{\imprimirtitulo}}
+%    \end{center}
+%    \vspace*{\fill}
+%    
+%    \hspace{.45\textwidth}
+%    \begin{minipage}{.5\textwidth}
+%        \imprimirpreambulo
+%        \SingleSpacing
+%  {\normalsize\imprimirorientadorRotulo~\imprimirorientador\par}
+%        \SingleSpacing
+%        \SingleSpacing
+%Data de aprovação: 14 de março de 2019.
+%    \end{minipage}%
+%    \vspace*{\fill}
+%   \end{center}
+%        
+%
+%
+%   \assinatura{{\imprimirorientador} \\ Orientador} 
+%   \assinatura{{Prof. Dr. Gilciano Saraiva Nogueira} \\ Avaliador PPGCF}
+%   \assinatura{{Prof. Dr. Cristiano Christofaro Matosinhos} \\ Avaliador PPGED}
+%   \assinatura{{Prof. Dr. Carlos Alberto Araújo Júnior} \\ Avaliador Externo à UFVJM e ao PPGCF}
+%   \assinatura{{Prof. Dr. Alessandro Vivas Andrade} \\ Avaliador Externo ao PPGCF}
+%   %\assinatura{\textbf{Professor} \\ Convidado 4}
+%      
+%   \begin{center}
+%    \vspace*{0.5cm}
+%     \textbf{\normalsize\imprimirlocal}
+%     \par
+%   \textbf{\normalsize\imprimirdata}
+%    \vspace*{1cm}
+%  \end{center}
+%  
+%\end{folhadeaprovacao}
+% ---
+
+% ---
+% Dedicatória
+% ---
+%\begin{dedicatoria}
+%   \vspace*{\fill}
+%   \centering
+%   \noindent
+%   \textit{ Este trabalho é dedicado às crianças adultas que,\\
+%   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+%\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+
+\begin{resumo}[agradecimentos]
+%\begin{agradecimentos}
+\setlength{\parskip}{\onelineskip}  % tente também \onelineskip
+
+%Euler; Beto e Sergio; Paisagens sustentaveis Maiza; Laboratorio de otimizacao grupo de pesquisa
+\noindent A Deus, por todas as oportunidades;
+
+ \noindent Aos meus pais Lívia e Luciano, pelo apoio constante e incondicional;
+
+\noindent À minha esposa Andreza, pelo carinho, estímulo, pela amizade e compreensão nas dificuldades e nos bons momentos durante o curso;
+
+ \noindent À Universidade Federal dos Vales do Jequitinhonha e Mucuri e ao Departamento de Engenharia Florestal, pela oportunidade de realização do Curso;
+
+\noindent Aos Professores Eric Bastos Görgens e Gilciano Saraiva Nogueira, pela orientação, dedicação, amizade e confiança;
+
+\noindent Ao Professor Euler Guimarães Horta, pela ajuda, dedicação, confiança e amizade;
+\noindent À equipe do projeto Paisagens Sustentáveis Brasil\footnote{\url{https://www.paisagenslidar.cnptia.embrapa.br/webgis/}}, em especial à Maiza Nara dos Santos, por gentilmente terem cedido os dados para realização da pesquisa;
+\noindent À equipe do grupo de pesquisa Otimização e Inteligência Artificial - OIA - DECOM/UFVJM, em especial ao Professor Alessandro Vivas Andrade,  pela ajuda, dedicação, confiança e amizade;
+
+\noindent Aos grandes amigos Humberto Antônio dos Santos e Sérgio Veloso Silva, pelo apoio constante;
+
+\noindent Ao coordenador da pós-graduação, Professor Marcio Leles R. de Oliveira;
+\noindent Aos funcionários da secretaria do DEF, Madalena e Gilmar;\noindent À Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Código de Financiamento 001.
+
+%\noindent O presente trabalho foi realizado com apoio da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Código de Financiamento 001
+\setlength{\parskip}{0.cm}  % tente também \onelineskip
+\end{resumo}
+
+
+% ---
+% Epígrafe
+% ---
+\begin{epigrafe}
+    \vspace*{\fill}
+	\begin{flushright}
+		\textit{``Cedo ou tarde você vai perceber, como eu, que\\
+		 há uma diferença entre conhecer o caminho e\\
+		 percorrer o caminho.''\\
+		(Matrix)}
+	\end{flushright}
+\end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+%\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\begin{resumo}[RESUMO]
+%\noindent A inserção de tecnologia, principalmente por meio das ferramentas computacionais,  em todos os setores produtivos mundiais é um fato indiscutível. Na área florestal não é diferente. O bioma Amazônia é um ambiente complexo e portanto apresenta dificuldades na abstração e obtenção de modelos confiáveis e precisos. Tais modelos, se precisos, podem facilitar tanto o estudo como o manejo eficaz e sustentável dessas áreas.
+%Minha proposta consiste na proposição do uso das ferramentas do reconhecimento de padrões para mapeamento de árvores com potencial econômico e ou com relevância madeireira em regiões da floresta amazônica. 
+%Muitos  pesquisadores vêm estudando métodos que podem gerar boas soluções, não necessariamente ótimas, visando viabilidade no tempo computacional, e utilizando mecanismos que permitam escapar de ótimos locais aproximando se ao máximo possível de um ótimo global. 
+%Dento deste contexto pode-se citar métodos de reconhecimento de padrões que  consistem na classificação ou categorização de um conjunto de dados por meio da análise das características que os definem. Reconhecer padrões faz parte da natureza humana, tarefas simples, como por exemplo, identificar um estilo musical, reconhecer uma pessoa pela face, identificar uma fruta pelo cheiro, etc,  são tarefas facilmente realizadas por um ser humano por meio dos sentidos básicos: audição, visão, tato, olfato e paladar. 
+%Um computador pode ser programado e utilizado para realizar reconhecimento padrões. A aplicação de uma máquina destas pode propiciar melhorias e evolução em vários processos como na identificação de impressões digitais, reconhecimento de sons e imagens aéreas, identificação de sequências de DNA dentre outras.
+%Este trabalho tem como objetivo o desenvolvimento de soluções computacionais aplicando técnicas do reconhecimento de padrões para a automatização e otimização de processos de mapeamento de árvores com potencial madeireiro numa área de floresta {amazônica} por meio do escaneamento por laser aerotransportado. Espera-se poder otimizar e automatizar a determinação espacial explícita do potencial produtivo em florestas nativas. Tais implicações podem vir a favorecer a inserção de tecnologia na criação de planos de manejo de precisão.
+
+\noindent 
+%Um dos grandes problemas relacionados à exploração madeireira em áreas de floresta amazônica é que 
+A metodologia atual de determinação do potencial produtivo madeireiro no âmbito dos planos de manejo florestal, resultam frequentemente em intervenções desnecessárias, em dimensionamento equivocado de pátios, na estimativa errônea do estoque e de unidades de produção. Isto ocorre, em muitos casos, em decorrência da falta de informação prévia para definição inicial das unidades de trabalho, o que dificulta a otimização do dimensionamento em função da regulação florestal. 
+Com os avanços no sensoriamento remoto, principalmente pelo crescimento da utilização da tecnologia de escaneamento por laser aerotransportado no setor florestal, surge a proposta de mapear o potencial madeireiro de áreas de floresta amazônica, possibilitando a determinação espacialmente explícita do potencial produtivo de áreas específicas bem como das árvores de interesse de manejo florestal.
+Para atingir os objetivos deste trabalho foi proposto um índice de incerteza para avaliar a correspondência entre características dos dados florestais provenientes do inventário florestal e das nuvens de pontos 3d obtidas do escaneamento por laser aerotranportado. 
+Os dados com baixo nível de incerteza foram utilizados na modelagem estatística dos diâmetros, e na validação dos resultados no quesito localização de árvores. 
+Foram localizadas 32\% das árvores com diâmetro superior à 50 $cm$ em relação aos dados de inventário florestal. Pode-se alcançar níveis de localização na ordem de 60\% caso sejam utilizadas folgas no método. 
+As análises qualitativas da estrutura da floresta composta pela amostragem de árvores localizadas no processo, constaram que a estrutura localizada é equivalente à amostrada no inventário florestal.  O mapeamento do potencial produtivo realizado neste estudo pode prover informações relevantes para o dimensionamento das unidades de produção anual, podendo favorecer o planejamento de unidades de produção anual com enfoque na regulação florestal. Deste modo, foi possível obter informações importantes para o manejo florestal de precisão e uso sustentável dos recursos florestais.
+
+\vspace{\onelineskip}
+\noindent \textbf{Palavras-chave}: \textit{LiDAR}. Visão computacional. Manejo florestal de precisão.
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[ABSTRACT]
+ \begin{otherlanguage*}{english}
+   \noindent The current methodology for determining the productive potential of timber in the context of forest management plans often results in unnecessary interventions, erroneous design of yards, erroneous estimation of stock and production units. This occurs, in many cases, due to the lack of previous information for the initial definition of the work units, which makes it difficult to optimize the sizing due to forest regulation.
+With advances in remote sensing, mainly due to the increased use of airborne laser scanning technology in the forestry sector, the proposal for mapping the potential of woodland areas of the Amazon forest, making possible the spatially explicit determination of the productive potential of specific areas as well as trees of forest management interest.
+The objectives of this work were to propose an uncertainty index to evaluate the correspondence between characteristics of forest data from forest inventory and clouds of points 3d.
+%The correlated data, with low level of uncertainty, were used in the statistical modeling of the tree diameters, and in the validation of the results in the location of trees.
+The data with low level of uncertainty were used in the statistical modeling of the diameters, and in the validation of the results in the location of trees.
+32\% of the trees with a diameter greater than 50 $cm$ were found in relation to the forest inventory data. Localization levels of the order of 60\% can be achieved if gaps are used in the method.
+The qualitative analyzes of the forest structure composed by the sampling of trees located in the process, showed that the localized structure is equivalent to that sampled in the forest inventory. 
+The mapping of the productive potential can provide information relevant to the design of the annual production units and, and may favor the planning of annual production units with a focus on forest regulation. In this way, it was possible to obtain important information for the forest management of precision and sustainable use of forest resources.
+
+   \vspace{\onelineskip}
+ 
+   \noindent 
+   \textbf{Keywords}: \textit{LiDAR}. Computer vision. Precision forest management.
+ \end{otherlanguage*}
+\end{resumo}
+\vfill
+
+% resumo em francês 
+%\begin{resumo}[Résumé]
+% \begin{otherlanguage*}{french}
+%    Il s'agit d'un résumé en français.
+% 
+%   \textbf{Mots-clés}: latex. abntex. publication de textes.
+% \end{otherlanguage*}
+%\end{resumo}
+
+% resumo em espanhol
+%\begin{resumo}[Resumen]
+% \begin{otherlanguage*}{spanish}
+%   Este es el resumen en español.
+%  
+%   \textbf{Palabras clave}: latex. abntex. publicación de textos.
+% \end{otherlanguage*}
+%\end{resumo}
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{siglas}
+\label{Siglas}
+\item[ALS] \textit{Airborne Laser Scanning}%\item[$Alt$] Altura extraída \textit{pixel}\item[AMF] Área de Manejo Florestal \item[$arv$] Referência a dados de árvore do inventário florestal\item[$C$] Parâmetro custo do classificador SVM\item[Car] Características altura ou raio de copa médio\item[Car{LiDAR}] Característica altura ou raio de copa médio extraída dos dados \textit{LiDAR}\item[CarINV] Característica altura ou raio de copa médio medida no inventário florestal\item[$Chao_{ptmedio}$] Estimativa da elevação do chão no ponto central dada janela de $25 m^2$\item[$DA$] Densidade absoluta \item[DBH] Diâmetro da árvore medido à 1,3$m$ do chão\item[$Dist$] Distância entre pontos\item[$DoA$] Dominância absoluta\item[$DoR$] Dominância relativa\item[$DR$] Densidade relativa\item[$erromax_{GPS}$] Erro máximo de corregistro\item[$Est$] Dado estimado\item[$FA$] Frequência absoluta\item[FN] Falso negativo\item[FP] Falso positivo\item[$FR$] Frequência relativa\item[GPS] \textit{Global Positioning System}\item[$Ht$] Altura da árvore medida no inventário florestal
+\item[$\overline{Ht}$] Média da altura das árvores do inventário florestal\item[$Ht{LiDAR}$] Altura da árvore extraída dos dados \textit{LiDAR}
+\item[$idx$] Índice de incerteza para correspondencia entre características\item[$Inv$] Referência aos dados do inventário florestal\item[IVC] Índice do valor de cobertura\item[IVI] Índice de valor de importância\item[$k$] Parâmetro do algoritmo \textit{k-means} que define o número de grupos\item[$kp$] Referência a dados de \textit{keypoint} extraídos dos dados \textit{LiDAR}\item[$Las$] Referência aos dados \textit{LiDAR}\item[$LiDAR$] \textit{Light Detection and Ranging}\item[LMF] \textit{Local Maxima Filter}\item[MDA] Modelo Digital de Altura\item[MDS] Modelo Digital de Superfície\item[MDT] Modelo Digital de Terreno\item[MSE] Erro quadrático médio\item[$Obs$] Amostra de dado observado em campo ou extraído dos dados \textit{LiDAR}\item[PMFS] Plano de Manejo Florestal Sustentável\item[$Quad$] Quadrante\item[$R^2$] Coeficiente de determinação\item[$RaioCopa$] Raio de copa\item[$RCM$] Raio de copa médio medido no inventário florestal\item[$\overline{RCM}$] Média do raio de copa médio das árvores do inventário florestal\item[$RCM{LiDAR}$] Raio de copa médio extraído dos dados \textit{LiDAR}\item[RMSE] Raiz do erro quadrático médio\item[SVM] \textit{Support Vector Machine}\item[UML] \textit{Unified Modeling Language}\item[UPA] Unidade de Produção Anual\item[UT] Unidades de Trabalho\item[UTM] Sistema de coordenadas\item[$Var_{Z}$] Variação de elevação entre \textit{pixels}\item[VN] Verdadeiro negativo\item[$Vol$] Volume da árvore\item[VP] Verdadeiro positivo\item[$X$] Posição UTM da coordenada leste\item[$Y$] Posição UTM da coordenada norte\item[$Z$] Aferição da elevação de um ponto em relação à superfície
+\item[$\gamma$] Parâmetro de configuração do classificador SVM
+\item[$\sigma_{Ht}$] Desvio padrão da altura das árvores do inventário florestal\item[$\sigma_{RCM}$] Desvio padrão do raio de copa médio das árvores do inventário florestal
+
+ % \item[Uts] %  \item[RN] %  \item[RS]%  \item[RL]%  \item[RO]
+ % \item[RaioCopa]
+%  \item[Ht]
+%  \item[H]%  \item[dist] Distância entre os pontos em relação à árvore do inventário e o keypoint em análise;%  \item[erromaxGPS]  Erro GPS campo + Erro GPS LiDAR;%  \item[mAlt]  Altura média das árvores no inventário;
+%  \item[arvRaster]%  \item[cp]%  \item[arvLAS]%  \item[dadosInv]%  \item[erroIdx]%  \item[RO]
+%  \item[CLidari] Observação da característica (Altura ou raio de copa) para dados extraídos da nuvem de pontos 3d;%  \item[CInvi]  Observação da característica (Altura ou raio de copa) para dados de inventário;%  \item[n]  tamanho da amostra.%  \item[X]%  \item[Chaoptmedio]%  \item[Q]%  \item[Z]
+%  \item[VarAlt]%  \item[Alt]
+%  \item[xinv] Posição UTM na coordenada leste em relação à árvore no inventário;%  \item[yinv] Posição UTM na coordenada norte em relação à árvore no inventário;%  \item[xpt] Posição UTM na coordenada leste em relação ao keypoint sob análise;%  \item[ypt] Posição UTM na coordenada norte em relação ao keypoint sob análise.%  \item[erromaxGPS]%  \item[RaioDIRinv] Raios da copa das árvores medidos no inventário nas direções norte, sul, leste e oeste;%  \item[RaioDIRpt]  Raios da copa obtidos nas direções norte, sul, leste e oeste extraídas para cada keypoint.%  \item[Htinv] Altura das árvores aferidas no inventário;%  \item[Htpt]  Altura extraída em cada keypoint.
+\end{siglas}
+
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+%\begin{simbolos}
+%  \item[$DAP $] Diâmetro medido à 1,3$m$ do chão
+%  \item[$ \li $] Light Detect and Range
+%  \item[$ \zeta $] Letra grega minúscula zeta
+%  \item[$ \in $] Pertence
+%\end{simbolos}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+%\tableofcontents*
+\tableofcontents
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
+% ----------------------------------------------------------
+\chapter*[Introdução Geral]{Introdução Geral}
+\addcontentsline{toc}{chapter}{Introdução Geral}
+% ----------------------------------------------------------
+
+
+% Arquivo da Introducao
+%\input{aintroducao_parte0.tex}
+
+
+
+\renewcommand{\partname}{Artigo}
+
+% ----------------------------------------------------------
+% PARTE
+% ----------------------------------------------------------
+\part{Correspondência de características entre dados do inventário florestal e \li em área de floresta amazônica}
+% ----------------------------------------------------------
+% ---
+% Capitulo de revisão de literatura
+% ---
+%\chapter{Estado da arte}
+% ---
+%Para elaborar sua resposta, mostre através de uma pequena revisão de literatura se outros trabalhos tentam resolver a sua pergunta geradora e, em caso afirmativo, como o fazem. 
+%
+%A proposta de estudo da tese se propõem a resolver tal pbma.
+%
+%A grande maioria dos estudos está voltado para resumos da nuvem \li
+
+% ---
+\chapter*{Correspondência de características entre dados do inventário florestal e \li em área de floresta amazônica}
+
+% ---
+
+% Arquivo do artigo I
+%\input{artigo1_parteI.tex}
+
+
+% ----------------------------------------------------------
+% PARTE
+% ----------------------------------------------------------
+\part{Mapeamento do potencial madeireiro numa área de floresta amazônica por meio do escaneamento por laser aerotransportado}
+% ----------------------------------------------------------
+
+% ---
+\chapter*{Mapeamento do potencial madeireiro numa área de floresta amazônica por meio do escaneamento por laser aerotransportado}
+% ---
+
+
+% Arquivo do artigo II
+%\input{artigo2_parte2.tex}
+
+%Os dados a serem utilizados neste trabalho foram cedidos pela equipe do projeto Paisagens Sustentáveis [CITAR], um projeto apoiado pela Agência dos Estados Unidos para o Desenvolvimento Internacional (USAID) e pelo Departamento de Estado dos EUA. O Serviço Florestal dos Estados Unidos, em colaboração com a Empresa Brasileira de Pesquisa Agrícola (EMBRAPA), coletaram os dados \li de alta precisão com o objetivo de desenvolver novos métodos e gerar conhecimento de campo. 
+%
+%Estes dados são referentes à pesquisa realizada no município de Paragominas, Pará, Brasil, mais especificamente na Fazenda Cauaxi. Foram obtidos em duas medições distintas, respectivamente nos anos de 2012 e 2014. Além dos dados obtidos dos sobrevoos por meio do \li, também foram realizados inventários florestais nos mesmos anos.
+%
+%A utilização destes dados corrobora bastante para adequação ao problema proposto, tento em vista que tem-se em mãos dados de campo e dados de sobrevoo \li com datas significativamente aproximadas.
+%
+%Os dados de inventário foram:
+%
+%VERIFICAR Tabela descritiva dos dados
+%
+%
+%Dados \li 
+%
+%Info tec:
+%
+%Representation type	Vector
+%
+%Scale: 300000
+%
+%Coordinate reference system: EPSG::SIRGAS 2000 (EPSG:4674)
+%
+%
+%\begin{figure}[htb!]
+%	\centering
+%	\includegraphics[scale=0.41]{img/fig1.eps}
+%	\caption{Dados \li}
+%	\label{fig:classificador}
+%\end{figure}
+%
+%
+%
+%Figura \ref	{fig:classificador}
+%
+
+
+% ---
+%\section{Metodologia}
+% ---
+
+
+
+% ----------------------------------------------------------
+% PARTE
+% ----------------------------------------------------------
+%\part{Considerações finais}
+% ----------------------------------------------------------
+
+% ---
+% primeiro capitulo de Resultados
+% ---
+\chapter*{Considerações finais}
+\addcontentsline{toc}{chapter}{Considerações finais}
+% ---
+
+Os estudos desenvolvidos nos dois capítulos da tese demonstram a viabilidade da aplicação da tecnologia \li em florestas tropicais, que possibilita  realizar o mapeamento do potencial madeireiro para fins de facilitação e otimização do planejamento da exploração de manejos florestais que empregam técnicas de precisão.
+
+{
+%\color{red} 
+Técnicas do sensoriamento remoto em conjunto com o manejo florestal de precisão podem vir a substituir processos referentes ao planejamento da exploração florestal sustentável, como por exemplo o inventário florestal 100\%. Com a aplicação do mapeamento do potencial madeireiro proposto neste estudo, o planejamento passa a ter enfoque apenas nos indivíduos de interesse madeireiro, diferentemente do censo. Se aplicada em larga escala pode trazer economias de recursos financeiros e humanos, por meio de práticas menos invasivas, e podendo favorecer o conhecimento prévio e generalista da área destinada à exploração florestal. 
+%Uma preocupação que pode surgir está relacionada com a sustentabilidade do método. 
+}
+
+O índice de incerteza proposto se apresentou versátil e crucial para realização do mapeamento do potencial madeireiro em áreas de floresta amazônica. Com sua utilização foi possível atingir maiores níveis de precisão na modelagem do diâmetro das árvores. Também foi utilizado com sucesso como parâmetro de validação da localização das árvores.
+
+Cabe ressaltar que a fórmula proposta para esse índice de incerteza não é definitiva. Ela pode ser alterada de acordo com as características que estiverem disponíveis em ambas fontes de dados.
+%, e puderem ser comparadas de alguma forma.
+
+Uma questão que vem sendo estudada é a definição ótima das funções de janela de busca utilizadas junto ao algoritmo LMF. Este estudo traz um enfoque diferente para a janela de busca, sendo que o objetivo é encontrar os pontos chave que após filtragem remeterão às árvores localizadas. Portanto, otimizações das janelas de busca com esse enfoque podem vir a melhorar o nível de localização de árvores de interesse do manejo florestal.
+
+A extração da característica raio de copa neste estudo, foi proposta  conforme a forma apresentada no inventário florestal. A avaliação de outras técnicas para extração do raio de copa dos dados \li podem trazer melhores níveis de precisão na definição da incerteza. Estudos específicos para obtenção do raio de copa, nas direções cardinais, podem denotar um parâmetro interessante para o manejo florestal de precisão, principalmente para regiões de florestas densas em que os métodos de definição do diâmetro de copa tendem a apresentar dificuldades em prover bons resultados.
+
+Acredita-se que  o mapeamento remoto dos indivíduos de interesse do manejo florestal de precisão pode fornecer informações consistentes para a otimização do dimensionamento de UPAs. O uso dessa abordagem pode prover vantagens estratégicas, ao possibilitar o planejamento da regulação florestal e definição das unidades de produção antes mesmo de ir a campo. Portanto, o dimensionamento e localização espacial das unidades de produção anual podem ser realizados com enfoque em diferentes objetivos, sejam eles  do ponto de vista de otimização matemática ou heurística.
+
+%Com o mapeamento dos indivíduos de interesse de forma remota%, que pode ser definido por meio de diferentes objetivos do ponto de vista de otimização matemática ou computacional. Estudos com o enfoque na otimização das UPAs também podem favorecer ao manejador florestal, e à regulação florestal.
+
+As técnicas de manejo de precisão em florestas tropicais encontram-se em constante desenvolvimento. Espera-se que os resultados deste trabalho contribuam de forma prática, com a evolução do manejo florestal de precisão.
+
+O código contemplando todas implementações utilizadas neste estudo está disponível para acesso na íntegra no \textit{GitHub}\textsuperscript{2}.
+
+\let\thefootnote\relax\footnotetext{\textsuperscript{2} \url{https://github.com/eduardopelli/tese.git}}
+
+%Os procedimentos de manejo de precisão em florestas tropicais ainda apresentam um vasto campo a ser melhorado com a incorporação de técnicas de biometria florestal e escaneamento 3D em larga escala. Assim, os resultados alcançados e os métodos utilizados e adaptados nos três capítulos desta tese não pretendem esgotar o assunto, e sim, continuar um ciclo de avanços iniciados com a silvicultura e manejo de precisão.
+
+
+%ESTUDOS FUTUROS OTIMIZACAO DE JANELA
+
+
+% ---
+% segundo capitulo de Resultados
+% ---
+
+
+
+
+% ----------------------------------------------------------
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
+% ----------------------------------------------------------
+\phantompart
+
+% ---
+% Conclusão
+% ---
+%\chapter{Conclusão Geral}
+% ---
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{tese}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+%\begin{apendicesenv}
+%
+% Imprime uma página indicando o início dos apêndices
+%\partapendices
+%
+% ----------------------------------------------------------
+%\chapter{Quisque libero justo}
+% ----------------------------------------------------------
+%
+%\lipsum[50]
+%
+% ----------------------------------------------------------
+%\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+%ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+% ----------------------------------------------------------
+%\lipsum[55-57]
+%
+%\end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+%\begin{anexosenv}
+%
+% Imprime uma página indicando o início dos anexos
+%\partanexos
+%
+% ---
+%\chapter{Morbi ultrices rutrum lorem.}
+% ---
+%\lipsum[30]
+%
+% ---
+%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+%parturient montes nascetur ridiculus mus}
+% ---
+%
+%\lipsum[31]
+%
+% ---
+%\chapter{Fusce facilisis lacinia dui}
+% ---
+%
+%\lipsum[32]
+%
+%\end{anexosenv}
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+\phantompart
+\printindex
+%---------------------------------------------------------------------
+
+\newpage
+\thispagestyle{empty}
+\textit{ \ \     }
+% Posicao da watermark da capa
+\AddToShipoutPicture*{\put(0,0){\includegraphics{img/capa.eps}}}
+
+\end{document}
