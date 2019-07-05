@@ -75,6 +75,8 @@
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{amsmath}			% para tratar o case no ambiente math
 
+\usepackage{enumitem}
+
 \usepackage{multirow}
 % ---
 
@@ -608,13 +610,13 @@
 % Agradecimentos
 % ---
 
-\begin{resumo}[agradecimentos]
-%\begin{agradecimentos}
+%\begin{resumo}[agradecimentos]
+\begin{agradecimentos}
 \setlength{\parskip}{\onelineskip}  % tente também \onelineskip
 
 
 \setlength{\parskip}{0.cm}  % tente também \onelineskip
-\end{resumo}
+\end{agradecimentos}
 
 
 % ---
@@ -651,8 +653,8 @@
 
    \vspace{\onelineskip}
 
-   \noindent 
-   \textbf{Keywords}: Palavra 1, ... .
+   \noindent Segue as mesma estrutura mancionada no item resumo. Text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text.
+   \textbf{Keywords}: Keyword 1. Keyword keyword keyword 2. Keyword keywordkeyword 3. Keyword 4. Keyword 5. 
  \end{otherlanguage*}
 \end{resumo}
 \vfill
@@ -732,12 +734,43 @@
 % ----------------------------------------------------------
 % Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
 % ----------------------------------------------------------
-\chapter*[Introdução Geral]{Introdução Geral}
-\addcontentsline{toc}{chapter}{Introdução Geral}
+\chapter{Algumas orientações}
+%\addcontentsline{toc}{chapter}{Algumas orientações}
 % ----------------------------------------------------------
 
 
+As seções e/ou subseções não utilizadas devem ser retiradas, incluindo as preliminares.
 
+Após a retirada, deve alterado somente o número da primeira página textual. As demais serão alteradas automaticamente. Clicar no número, ir em “formatar número de páginas”, “iniciar em” e alterar.
+
+O Sumário basta atualizar, e inserir um espaço emtre as seções primárias. Selecione o sumário por completo, “atualizar campo”, atualizar o índice inteiro.
+As listas não são atualizadas automaticamente.
+
+Para inserir títulos nas seções e subseções, basta substituir o texto, na formatação fornecida.
+
+Os casos não abordados no modelo devem seguir o Manual de normalização: monografias, dissertações e teses, da UFVJM, conforme as normas da ABNT vigentes.
+
+Os títulos  das seções devem ser alinhados à esquerda, obedecendo a numeração progressiva em algarismos arábicos separados por um espaço de caractere, até a seção quinária. 
+
+Devem iniciar sempre no anverso da folha. Os indicativos de seções sem numeração devem ser centralizados.
+
+\begin{enumerate}
+\item Os títulos das seções, subseções e seu texto devem ser separados por um espaço de 1,5 entre linhas. Entre o texto e o título seguinte o espaçamento também deve ser de 1,5. Caso o título ocupe mais de uma linha, as seguintes devem obedecer ao espaçamento (1,5) da primeira. Devem-se adotar os seguintes procedimentos: utilizar algarismos arábicos sequenciais;
+\item limitar a numeração até a seção quinária;
+\item utilizar números inteiros a partir de 1 no indicativo das seções primárias;
+\item inserir um texto em cada seção;
+\item apontar as subseções com o indicativo da seção primária, seguido pelo número que lhe for atribuído, separado por ponto, o que  se recomenda para as demais seções;
+\item não utilizar ponto, hífen, travessão, parêntese ou outro sinal entre o indicativo de seção e o titulo;
+\item alinhar, abaixo da primeira letra da primeira palavra do título, a partir da segunda linha, títulos que ocupem mais de uma linha. 
+\end{enumerate}
+
+\begin{figure}[htb!]
+	\centering
+	\caption{Estrutura do trabalho.}
+	\label{fig:fig1}
+	\includegraphics[scale=.95]{img_trab/fig1}
+	\Fonte{1.cm}{Elaborada pelo autor.}
+\end{figure}
 
 
 % ---
