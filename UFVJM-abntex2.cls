@@ -102,3 +102,108 @@
 }
 
 \makeatother
+
+
+\usepackage{tocloft}
+
+% Configuracao do SUMARIO
+%--------------------------------------------------
+\cftsetindents{part}{0em}{1em}
+\cftsetindents{chapter}{0em}{0em}
+\cftsetindents{section}{0em}{1em}
+\cftsetindents{subsection}{0em}{1.6em}
+\cftsetindents{subsubsection}{0em}{2.4em}
+\cftsetindents{paragraph}{0em}{3.2em}
+
+% excelente - deixar section maisculo 
+\makeatletter
+\let\oldcontentsline\contentsline
+\def\contentsline#1#2{%
+	\expandafter\ifx\csname l@#1\endcsname\l@section
+	\expandafter\@firstoftwo
+	\else
+	\expandafter\@secondoftwo
+	\fi
+	{%
+		\oldcontentsline{#1}{\MakeTextUppercase{#2}}%
+	}{%
+	\oldcontentsline{#1}{#2}%
+}%
+}
+\makeatother
+\renewcommand{\cftparagraphfont}{\normalsize\normalfont\itshape}
+\renewcommand{\cftsubsubsectionfont}{\bfseries\itshape}
+\renewcommand{\cftsubsectionfont}{\bfseries}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftpartpagefont}{\bfseries \normalsize}
+
+
+% Espaçamento entre títulos
+%--------------------------------------------------
+\usepackage{titlesec}
+
+  \titleformat{\chapter}
+  {\centering\normalfont\bfseries}
+  {\thechapter}
+  {5pt}
+  {\MakeUppercase}
+
+\titleformat{\section}
+  {\normalfont\bfseries}
+  {\thesection}
+  {5pt}
+  {\MakeUppercase}
+  
+  \titleformat{\subsection}
+  {\normalfont\bfseries}
+  {\thesubsection}
+  {5pt}
+  {}
+
+  \titleformat{\subsubsection}
+  {\normalfont\bfseries\itshape}
+  {\thesubsubsection}
+  {5pt}
+  {\MakeUppercase}  
+
+ 
+\titlespacing*{\chapter}
+{0pt}{.75cm}{.75cm}
+\titlespacing*{\section}
+{0pt}{.75cm}{.75cm}
+\titlespacing*{\subsection}
+{0pt}{.75cm}{.75cm}
+\titlespacing*{\subsubsection}
+{0pt}{.75cm}{.75cm}
+\titlespacing*{\subsubsubsection}
+{0pt}{.75cm}{.75cm}
+
+% Fontes padrao de part, chapter, section, subsection e subsubsection
+%--------------------------------------------------
+\renewcommand{\ABNTEXchapterfont}{\rmfamily}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize\bfseries}
+\renewcommand{\ABNTEXsectionfont}{\normalsize\bfseries}
+\renewcommand{\ABNTEXpartfont}{\footnotesize\bfseries}
+\renewcommand{\ABNTEXpartfontsize}{\footnotesize\bfseries}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize\bfseries\itshape} 
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize\normalfont\itshape} 
+
+
+% Titulos das Figuras e tabelas
+%--------------------------------------------------
+\captionnamefont{\fontsize{10pt}{\baselineskip}\bfseries}
+\captiontitlefont{\fontsize{10pt}{\baselineskip}\bfseries\centering}
+
+
+% Espaco de fonte das figurs e tabelas
+% Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
+%--------------------------------------------------
+\newcommand{\Fonte}[2]{%
+\begin{flushleft} 
+\vspace{0cm}
+\hspace{#1}
+    \begin{minipage}{6cm}
+   \footnotesize Fonte: #2
+    \end{minipage}%
+\end{flushleft} 
+}

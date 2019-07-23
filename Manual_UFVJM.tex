@@ -82,43 +82,6 @@
 
  %cores nas tabelas%
 \usepackage{colortbl}
- 
-
-
-%\usepackage{titlecaps}% http://ctan.org/pkg/titlecaps
-\usepackage{titlesec}
-%\usepackage[compact]{titlesec}
-
-%\titleformat{\chapter}{\normalfont\LARGE\bfseries}{\MakeUppercase{\thechapter}}{.5em}{\vspace{.5ex}}[\titlerule]
-\titleformat{\section}
-  {\normalfont\bfseries}
-  {\thesection}
-  {5pt}
-  {\MakeUppercase}
-  
-  \titleformat{\subsection}
-  {\normalfont\bfseries}
-  {\thesubsection}
-  {5pt}
-  {}
-  
-  \titleformat{\chapter}
-  {\centering\normalfont\bfseries}
-  {\thechapter}
-  {5pt}
-  {\MakeUppercase}
-  
-%\setallmainfonts{Times New Roman}
-%\setmainfont{Times New Roman}
-
-\usepackage{tikz}
-\usetikzlibrary{arrows,calc,patterns,decorations.markings} 
-\usetikzlibrary{decorations.text}
-\usetikzlibrary{arrows.meta, calc, quotes}
-
-%\usetikzlibrary{arrows.meta, calc, quotes}
-
-\usepackage[portuguese, ruled, linesnumbered]{algorithm2e} %Para criar algoritmos
 
 \usepackage{eso-pic}			% colocar imagem da UFVJM na capa
 	
@@ -186,20 +149,9 @@
 %  moredelim=[il][\textcolor{pgrey}]{$$},
 %  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
 %}
-\newcommand{\li}{\textit{LiDAR }}
-\newcommand{\kps}{\textit{keypoints} }
 
-\newcommand{\cA}{5}
-\newcommand{\cB}{1}
-\newcommand{\cC}{0.5}
 
-\titlespacing*{\chapter}
-{0pt}{.75cm}{.75cm}
-\titlespacing*{\section}
-{0pt}{.75cm}{.75cm}
 
-\titlespacing*{\subsection}
-{0pt}{.75cm}{.75cm}
 
 
 
@@ -210,35 +162,12 @@
 
 %\captionstyle{\raggedright} %(para as legendas; use \legend para fonte)
 
-% Fontes padrao de part, chapter, section, subsection e subsubsection
-\renewcommand{\ABNTEXchapterfont}{\rmfamily}
-\renewcommand{\ABNTEXchapterfontsize}{\normalsize\bfseries}
-
-\renewcommand{\ABNTEXsectionfont}{\normalsize\bfseries}
-
-\renewcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
-\renewcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
-
-
-% Titulos das Figuras e tabelas
-\captionnamefont{\fontsize{10pt}{\baselineskip}\bfseries}
-\captiontitlefont{\fontsize{10pt}{\baselineskip}\bfseries\centering}
 
 
 %Espaçode titulos
 \titlespacing{\chapter}{0pt}{-14mm}{.75cm}
 
-% Espaco de fonte das figurs e tabelas
-% Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
-\newcommand{\Fonte}[2]{%
-\begin{flushleft} 
-\vspace{0cm}
-\hspace{#1}
-    \begin{minipage}{6cm}
-   \footnotesize Fonte: #2
-    \end{minipage}%
-\end{flushleft} 
-}
+
 
 
 \lstset{ %
@@ -792,10 +721,13 @@ Devem iniciar sempre no anverso da folha. Os indicativos de seções sem numera�
 % ----------------------------------------------------------
 
 % ---
-\chapter*{Capítulo 1}
+\chapter{Capítulo 1}
 % ---
 
-
+\section{secao teste}
+\subsection{subsecao teste}
+\subsubsection{subsubsecao teste}
+\subsubsubsection{subsubsubsecao teste}
 
 % ---
 %\section{Metodologia}
