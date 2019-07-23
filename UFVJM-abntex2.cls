@@ -164,7 +164,7 @@
   {\normalfont\bfseries\itshape}
   {\thesubsubsection}
   {5pt}
-  {\MakeUppercase}  
+  {}  
 
  
 \titlespacing*{\chapter}
