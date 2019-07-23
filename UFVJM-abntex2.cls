@@ -31,24 +31,29 @@
 % alterando a capa
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
-    \center
-    \ABNTEXchapterfont\Large UNIVERSIDADE QUE TORNA OS DOCUMENTOS AINDA MAIS ESTRANHOS
-    
-    \vspace*{1cm}
-    
-    {\ABNTEXchapterfont\large\imprimirautor}
+   \center
+  \normalsize
+\textbf{UNIVERSIDADE FEDERAL DOS VALES DO JEQUITINHONHA E MUCURI}\\  
+  %  \vspace*{1cm}
+   \textbf{\normalsize\imprimirunidade}\\
+  %  \vspace*{1cm}
+   \textbf{\normalsize\imprimirautor}
 
-    \vfill
+
+   \vfill
     \begin{center}
-    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+       {\normalsize\bfseries\MakeTextUppercase{\imprimirtitulo}}
     \end{center}
-    \vfill
-    
-    \large\imprimirlocal
+   \vfill
 
-    \large\imprimirdata
+ %\vspace*{7cm}
+    
+     \textbf{\normalsize\imprimirlocal}\\
+
+   \textbf{\normalsize\imprimirdata}
     
     \vspace*{1cm}
+
   \end{capa}
 }
 
@@ -59,57 +64,58 @@
 
 \renewcommand{\folhaderostocontent}{
 \begin{center}
-{\ABNTEXchapterfont\Large UNIVERSIDADE QUE TORNA OS DOCUMENTOS AINDA MAIS ESTRANHOS}
+ \textbf{\normalsize\imprimirautor}
     
-    \vspace*{1cm}
-    
-{\ABNTEXchapterfont\large\imprimirautor}
-
-\vspace*{\fill}\vspace*{\fill}
+\vspace*{8cm}
 
 \begin{center}
-\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+       {\normalsize\bfseries\MakeTextUppercase{\imprimirtitulo}}
 \end{center}
 
 \vspace*{\fill}
 
 \abntex@ifnotempty{\imprimirpreambulo}{%
-  \hspace{.45\textwidth}
-  \begin{minipage}{.5\textwidth}
+\hspace{.4\textwidth}
+%\hspace{6.98cm}
+\begin{minipage}{.55\textwidth}
   \SingleSpacing
   \imprimirpreambulo
+  \SingleSpacing
+  {\normalsize\imprimirorientadorRotulo~\imprimirorientador\par}
+
+  \abntex@ifnotempty{\imprimircoorientador}{%
+  {\normalsize\imprimircoorientadorRotulo~\imprimircoorientador}%
+}%
   \end{minipage}%
   \vspace*{\fill}
 }%
 
-{\large\imprimirorientadorRotulo~\imprimirorientador\par}
 
-\abntex@ifnotempty{\imprimircoorientador}{%
-  {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
-}%
+   \vfill
 
-\vspace*{\fill}
+ %\vspace*{7cm}
+    
+     \textbf{\normalsize\imprimirlocal}\\
 
-{\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
-
-{\large\imprimirlocal}
-
-\par
-
-{\large\imprimirdata}
-\vspace*{1cm}
+   \textbf{\normalsize\imprimirdata}
+    
+    \vspace*{1cm}
 \end{center}
 }
 
 \makeatother
 
 
-\usepackage{tocloft}
+
+% Pacotes importantes
+%--------------------------------------------------
+
+\usepackage{tocloft} % Edições no sumário
 
 % Configuracao do SUMARIO
 %--------------------------------------------------
 \cftsetindents{part}{0em}{1em}
-\cftsetindents{chapter}{0em}{0em}
+\cftsetindents{chapter}{0em}{1em}
 \cftsetindents{section}{0em}{1em}
 \cftsetindents{subsection}{0em}{1.6em}
 \cftsetindents{subsubsection}{0em}{2.4em}
@@ -166,6 +172,12 @@
   {5pt}
   {}  
 
+  \titleformat{\paragraph}
+  {\normalfont\itshape}
+  {\theparagraph}
+  {5pt}
+  {}  
+
  
 \titlespacing*{\chapter}
 {0pt}{.75cm}{.75cm}
@@ -207,3 +219,7 @@
     \end{minipage}%
 \end{flushleft} 
 }
+
+% 19/07/2019 - Comando para definição da Unidade
+\providecommand{\imprimirunidade}{}
+\newcommand{\unidade}[1]{\renewcommand{\imprimirunidade}{#1}}
